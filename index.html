@@ -1,40 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <style>
-body {
-    background-color: lightblue;
-}
 
-h1 {
-    color: white;
-    text-align: center;
-}
-
-p {
-    font-family: verdana;
-    font-size: 20px;
-    text-align: center;
-}
-</style>
-  
 <body>
   <h1 style="color: green;" style="text-align">Distance Unit Converter</h1>
   <p style="color: green;" style="text-align">Created by Jason Biesinger</p>
   <br>
   
-  <div class="main">
+  <style>
+body{background-color: lightblue}
+.main{border: 1px solid;width: 30%;margin: 10% auto ;box-shadow: 2px 2px 20px brown;background-color: cornflowerblue;border-radius: 50px; }
+p{margin:10% auto;padding: 10;width: 80%; font-family: verdana; text-align: center; font-size: 20px;}
+input{padding: 10px;border:2px solid gray;border-radius:10px;}
+select{padding: 10px;border:2px solid gray;border-radius:10px;}
+h1{text-align: center;color: green;}
+</style>
+
+<div class="main">
  
-  <p><input type="text" placeholder="Enter a number" id="one" />
-  Unit:
-  <select onchange="me()" id="three">
-  <option value="in">Inches</option>
-  <option value="ft">Feet</option>
-  <option value="yd">Yards</option>
-  <option value="mi">Miles</option>
-  <option value="m">Meters</option>
-  <option value="km">Kilometers</option>
-  </select>
-  </p>
+<p><input type="text" placeholder="Enter a number" id="one" />
+Units:
+<select onchange="me()" id="three">
+<option value="s">Seconds</option>
+<option value="min">Minutes</option>
+<option value="m">Meter</option>
+<option value="km">Kilo Meter</option>
+<option value="g">Gram</option>
+<option value="kg">Kilo gram</option>
+</select>
+</p>
+ 
+<p><input type="text" id="two" placeholder="Result..."> Convert to: <select onchange="show()" id="four"> </select>  </p>
+ 
+</div>
+<p>First Select a Unit from above box then enter a number in first input box and then select a unit in convert box the result will be here in result box.</p>
+<script>
+var w= document.getElementById("one");
+var x= document.getElementById("two");
+var y= document.getElementById("three");
+var z= document.getElementById("four");
+function me(){
+ 
+if (y.value=="s" || y.value=="min"){
+z.innerHTML="<option value=\"s\">S</option><option value=\"min\">MIN</option>";
+}
+if (y.value=="m" || y.value=="km"){
+z.innerHTML="<option value=\"m\">M</option><option value=\"km\">KM</option>";
+}
+if (y.value=="g" || y.value=="kg"){
+z.innerHTML="<option value=\"g\">g</option><option value=\"kg\">Kg</option>";
+}
+}
+ 
+function show(){
+ 
+if (y.value=="s" || y.value=="min"){
+ if(z.value=="s" && y.value=="s" ){ x.value=w.value; }
+ if(z.value=="s" && y.value=="min" ){ x.value=w.value*60; }
+ if(z.value=="min" && y.value=="s" ){ x.value=w.value/60; }
+ if(z.value=="min" && y.value=="min" ){ x.value=w.value; }
+}
+if (y.value=="m" || y.value=="km"){
+ 
+if(z.value=="m" && y.value=="m" ){ x.value=w.value; }
+ if(z.value=="m" && y.value=="km" ){ x.value=w.value*1000; }
+ if(z.value=="km" && y.value=="m" ){ x.value=w.value/1000; }
+ if(z.value=="km" && y.value=="km" ){ x.value=w.value; }
+ 
+}
+if (y.value=="g" || y.value=="kg"){
+if(z.value=="g" && y.value=="g" ){ x.value=w.value; }
+ if(z.value=="g" && y.value=="kg" ){ x.value=w.value*1000; }
+ if(z.value=="kg" && y.value=="g" ){ x.value=w.value/1000; }
+ if(z.value=="kg" && y.value=="kg" ){ x.value=w.value; }
+ 
+}
+ 
+}</script>
   
+ 
+ 
 </body>
 </html>
