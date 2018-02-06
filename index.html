@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <style>
+body {
+    background-color: lightblue;
+}
 
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+    text-align: center;
+}
+</style>
+  
+<body>
+  <h1 style="color: green;" style="text-align">Distance Unit Converter</h1>
+  <p style="color: green;" style="text-align">Created by Jason Biesinger</p>
+  <br>
+  
+  <div class="main">
+ 
+  <p><input type="text" placeholder="Enter a number" id="one" />
+  Unit:
+  <select onchange="me()" id="three">
+  <option value="in">Inches</option>
+  <option value="ft">Feet</option>
+  <option value="yd">Yards</option>
+  <option value="mi">Miles</option>
+  <option value="m">Meters</option>
+  <option value="km">Kilometers</option>
+  </select>
+  </p>
+  
+</body>
+</html>
